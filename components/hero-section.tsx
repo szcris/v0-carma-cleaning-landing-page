@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
@@ -39,7 +40,7 @@ export function HeroSection() {
             size="lg"
             className="rounded-full px-8 text-base font-semibold border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
           >
-            <a href="#services">View Our Services</a>
+            <Link href="/services">View Our Services</Link>
           </Button>
         </div>
       </div>

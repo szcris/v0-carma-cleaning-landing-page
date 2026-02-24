@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
@@ -21,26 +22,27 @@ export function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-foreground tracking-tight">
-            Carma<span className="text-primary">.</span>
+        {/* Logo wordmark */}
+        <Link href="/" className="flex items-center gap-1.5">
+          <span className="font-serif text-xl text-foreground leading-none tracking-tight">
+            Carma
           </span>
-          <span className="hidden sm:block text-sm text-muted-foreground font-normal tracking-widest uppercase">
+          <span className="text-primary font-bold text-xl leading-none">·</span>
+          <span className="font-sans text-sm font-semibold tracking-[0.15em] uppercase text-foreground/60 leading-none">
             Cleaning
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#services" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
+          <Link href="/services" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
             Services
-          </a>
-          <a href="#faq" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
+          </Link>
+          <Link href="/faq" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
             FAQ
-          </a>
+          </Link>
           <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5">
-            <a href="#quote">Get a Free Quote</a>
+            <Link href="/#quote">Get a Free Quote</Link>
           </Button>
         </div>
 
@@ -57,14 +59,14 @@ export function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-border px-6 py-4 flex flex-col gap-4">
-          <a href="#services" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>
+          <Link href="/services" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>
             Services
-          </a>
-          <a href="#faq" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>
+          </Link>
+          <Link href="/faq" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>
             FAQ
-          </a>
+          </Link>
           <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full">
-            <a href="#quote" onClick={() => setMenuOpen(false)}>Get a Free Quote</a>
+            <Link href="/#quote" onClick={() => setMenuOpen(false)}>Get a Free Quote</Link>
           </Button>
         </div>
       )}

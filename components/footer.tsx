@@ -1,37 +1,25 @@
+import Link from "next/link"
+
 export function Footer() {
   return (
-    <footer className="bg-foreground text-white/70 py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Brand */}
-          <div className="text-center md:text-left">
-            <p className="text-white font-bold text-lg tracking-tight">
-              Carma<span className="text-primary" style={{ color: "#38bdf8" }}>.</span> Cleaning
-            </p>
-            <p className="text-xs mt-1 text-white/40">Premium cleaning services, Montreal.</p>
-          </div>
+    <footer className="bg-foreground text-white/60">
+      <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-1.5 shrink-0">
+          <span className="font-serif text-base text-white leading-none">Carma</span>
+          <span className="text-primary font-bold leading-none" style={{ color: "#38bdf8" }}>·</span>
+          <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-white/50 leading-none">Cleaning</span>
+        </Link>
 
-          {/* Contact */}
-          <div className="text-center text-sm">
-            <a href="tel:5141234567" className="hover:text-white transition-colors">
-              514-123-4567
-            </a>
-          </div>
-
-          {/* Links */}
-          <div className="flex items-center gap-6 text-xs">
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
-            </a>
-          </div>
+        {/* Links */}
+        <div className="flex items-center gap-5 text-xs">
+          <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>
         </div>
 
-        <div className="border-t border-white/10 mt-8 pt-6 text-center text-xs text-white/30">
-          Carma Cleaning © 2026. All rights reserved.
-        </div>
+        {/* Copyright */}
+        <p className="text-xs text-white/30 shrink-0">© 2026 Carma Cleaning Services Inc.</p>
       </div>
     </footer>
   )
