@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Sparkles } from "lucide-react"
+import { Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const services = [
@@ -35,40 +35,31 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
   return (
     <Link
       href={`/contact?service=${query}`}
-      className="group relative rounded-2xl overflow-hidden border border-white/60 shadow-md hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 block"
+      className="group relative rounded-2xl overflow-hidden border border-white/60 shadow-md hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 block w-full"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Background image */}
+      {/* Background image — 60% visible */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {/* 20% white overlay = 80% image opacity */}
-        <div className="absolute inset-0 bg-white/20" />
+        <div className="absolute inset-0 bg-white/40" />
       </div>
 
-      {/* Content — centered column */}
-      <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center gap-5 min-h-[300px]">
-        {/* Badge top */}
-        <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary bg-white/70 backdrop-blur-sm px-2.5 py-1 rounded-full border border-primary/20">
+      {/* Content */}
+      <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[300px]">
+        <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary px-2.5 py-1 rounded-full border border-primary/40 bg-white/30">
           {badge}
         </span>
-
-        {/* Title + description */}
-        <div className="flex flex-col gap-2">
-          <h3 className="text-lg font-bold text-black">{title}</h3>
-          <p className="text-sm text-black leading-relaxed">{description}</p>
-        </div>
-
-        {/* CTA button */}
+        <h3 className="text-lg font-bold text-black drop-shadow-sm">{title}</h3>
+        <p className="text-sm font-semibold leading-relaxed text-black drop-shadow-sm max-w-[220px]">{description}</p>
         <Button
           asChild
-          className="rounded-md shadow-md bg-foreground text-white hover:bg-foreground/90 gap-2 pointer-events-none"
-          tabIndex={-1}
-          aria-hidden="true"
+          className="rounded-md shadow-md text-white gap-2 transition-all duration-300"
+          style={{ backgroundColor: "#0284C7" }}
         >
           <span>
             <Sparkles
@@ -84,8 +75,13 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
 }
 
 export function ServicesSection() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const prev = () => setActiveIndex((i) => (i - 1 + services.length) % services.length)
+  const next = () => setActiveIndex((i) => (i + 1) % services.length)
+
   return (
-    <section id="services" className="py-24 bg-transparent">
+    <section id="services" className="py-10 md:py-24 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
@@ -96,8 +92,42 @@ export function ServicesSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service, i) => (
+        {/* Mobile: arrow-navigated single card — arrows overlaid on card edges */}
+        <div className="md:hidden relative w-[92%] mx-auto">
+          <ServiceCard {...services[activeIndex]} />
+          {/* Left arrow — overlaid on card */}
+          <button
+            onClick={prev}
+            aria-label="Previous service"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
+          >
+            <ChevronLeft size={20} className="text-white" />
+          </button>
+          {/* Right arrow — overlaid on card */}
+          <button
+            onClick={next}
+            aria-label="Next service"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
+          >
+            <ChevronRight size={20} className="text-white" />
+          </button>
+        </div>
+
+        {/* Mobile dot indicators */}
+        <div className="md:hidden flex justify-center gap-2 mt-4">
+          {services.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              aria-label={`Go to service ${i + 1}`}
+              className={`w-2 h-2 rounded-full transition-colors ${i === activeIndex ? "bg-primary" : "bg-foreground/20"}`}
+            />
+          ))}
+        </div>
+
+        {/* Desktop: 3-col grid */}
+        <div className="hidden md:grid grid-cols-3 gap-6">
+          {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
         </div>

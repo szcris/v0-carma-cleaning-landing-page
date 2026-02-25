@@ -22,7 +22,7 @@ export function BeforeAfterSlider() {
   const stopDrag = useCallback(() => { isDragging.current = false }, [])
 
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-10 md:py-24 bg-secondary/30">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
@@ -66,8 +66,8 @@ export function BeforeAfterSlider() {
             style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
           >
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-02-24%20190926-XH0kcheZtm8tVWByQx44Cp9FHpMdBw.png"
-              alt="Before cleaning — messy dealership office"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_f9uz1hf9uz1hf9uz.png-baAiKlJQbbKMmajigSkiturmQCYGyY.jpeg"
+              alt="Before cleaning — messy dealership office with white tables"
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
             />
@@ -79,12 +79,12 @@ export function BeforeAfterSlider() {
             style={{ left: `${position}%` }}
           />
 
-          {/* Handle */}
+          {/* Handle — larger for thumb-scrolling on mobile */}
           <div
-            className="absolute top-1/2 z-10 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center border-2 border-white pointer-events-none"
+            className="absolute top-1/2 z-10 -translate-y-1/2 -translate-x-1/2 w-12 h-12 md:w-10 md:h-10 rounded-full bg-white shadow-xl flex items-center justify-center border-2 border-white pointer-events-none"
             style={{ left: `${position}%` }}
           >
-            <GripVertical size={18} className="text-foreground/70" />
+            <GripVertical size={20} className="text-foreground/70" />
           </div>
 
           {/* Labels */}
