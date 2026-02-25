@@ -21,7 +21,7 @@ export function HeroSection() {
           Montreal &amp; West Island
         </span>
         <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight text-balance mb-6 animate-fade-in-up animate-delay-100">
-          The Most Reliable Cleaning Hands
+          The Most Reliable Cleaning Hands in Montreal.
         </h1>
         <p className="text-lg md:text-xl text-white/80 leading-relaxed text-balance mb-10 max-w-xl mx-auto animate-fade-in-up animate-delay-200">
           Spotless results. Fully vetted professionals. 100% peace of mind for your home or business.
