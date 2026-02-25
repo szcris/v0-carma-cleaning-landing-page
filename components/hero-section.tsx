@@ -37,7 +37,9 @@ export function HeroSection() {
           {...fadeUp(0.1)}
           className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-4xl sm:text-5xl md:text-7xl text-balance mb-6"
         >
-          Montreal&apos;s Gold Standard in Premium Cleaning
+          Montreal&apos;s Gold Standard
+          <br />
+          In Premium Cleaning
         </motion.h1>
 
         <motion.p
