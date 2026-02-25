@@ -16,7 +16,7 @@ const services = [
     queryParam: "residential",
     before: "/images/residential-dirty.jpg",
     after: "/images/residential-after.jpg",
-    beforeAlt: "Cluttered residential room with spills and mud before cleaning",
+    beforeAlt: "Dirty bathroom with soap scum on shower glass, mold on grout lines, and cluttered vanity before residential cleaning",
     afterAlt: "Spotless residential room after Carma cleaning",
     points: [
       "Fully vetted, background-checked cleaners — the same trusted team every visit.",
