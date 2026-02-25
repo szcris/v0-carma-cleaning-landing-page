@@ -39,48 +39,40 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Background image — 80% visible */}
+      {/* Background image — 60% visible */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {/* 20% white overlay = 80% image visible */}
-        <div className="absolute inset-0 bg-white/20" />
-        {/* Subtle bottom-up gradient to anchor text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+        {/* 40% white overlay = 60% image visible */}
+        <div className="absolute inset-0 bg-white/40" />
       </div>
 
       {/* Content — centered column */}
-      <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center gap-5 min-h-[300px]">
-        {/* Badge top */}
-        <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-full border border-primary/20">
-          {badge}
-        </span>
-
-        {/* Title + description — frosted glass pill for legibility */}
-        <div className="flex flex-col gap-2 bg-white/75 backdrop-blur-md rounded-xl px-5 py-4 shadow-sm">
+      <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
+        {/* Glassmorphism card — title, description, button all inside */}
+        <div className="flex flex-col items-center gap-4 bg-white/40 backdrop-blur-md rounded-xl px-6 py-6 border border-white/60 shadow-lg w-full">
+          <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary px-2.5 py-1 rounded-full border border-primary/30">
+            {badge}
+          </span>
           <h3 className="text-lg font-bold text-black">{title}</h3>
           <p className="text-sm font-semibold leading-relaxed text-black">{description}</p>
+          <Button
+            asChild
+            className="rounded-md shadow-md text-white gap-2 mt-1 transition-all duration-300"
+            style={{ backgroundColor: "#0284C7" }}
+          >
+            <span>
+              <Sparkles
+                size={14}
+                className={`transition-all duration-300 ${hovered ? "rotate-12 scale-125" : ""}`}
+              />
+              Get a Quote
+            </span>
+          </Button>
         </div>
-
-        {/* CTA button */}
-        <Button
-          asChild
-          className="rounded-md shadow-md text-white gap-2 pointer-events-none transition-all duration-300"
-          style={{ backgroundColor: "#0284C7" }}
-          tabIndex={-1}
-          aria-hidden="true"
-        >
-          <span>
-            <Sparkles
-              size={14}
-              className={`transition-all duration-300 ${hovered ? "rotate-12 scale-125" : ""}`}
-            />
-            Get a Quote
-          </span>
-        </Button>
       </div>
     </Link>
   )
