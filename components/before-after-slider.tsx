@@ -22,9 +22,9 @@ export function BeforeAfterSlider() {
   const stopDrag = useCallback(() => { isDragging.current = false }, [])
 
   return (
-    <section className="py-10 md:py-24 bg-secondary/30">
+    <section className="py-6 md:py-12 bg-secondary/30">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
             Results
           </span>

@@ -31,9 +31,9 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="py-24 bg-transparent">
+    <section id="faq" className="py-8 md:py-12 bg-transparent">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-12 animate-fade-in-up">
+        <div className="text-center mb-8 animate-fade-in-up">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
             FAQ
           </span>

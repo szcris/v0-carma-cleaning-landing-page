@@ -40,7 +40,7 @@ function QuoteFormInner({ asPage = false }: { asPage?: boolean }) {
   const Wrapper = asPage ? "div" : "section"
 
   return (
-    <Wrapper id={asPage ? undefined : "quote"} className={asPage ? undefined : "py-24 bg-transparent"}>
+    <Wrapper id={asPage ? undefined : "quote"} className={asPage ? undefined : "py-8 md:py-12 bg-transparent"}>
       <div className="max-w-2xl mx-auto px-6">
         {!asPage && (
           <div className="text-center mb-10 animate-fade-in-up">
