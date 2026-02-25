@@ -28,7 +28,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pt-16 flex flex-col items-center">
         <motion.h1
           {...fadeUp(0)}
-          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-[1.35rem] sm:text-3xl md:text-5xl mb-6"
+          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-[1.35rem] sm:text-3xl md:text-5xl mb-3"
         >
           Montreal&apos;s Gold Standard
           <br />
@@ -37,7 +37,7 @@ export function HeroSection() {
 
         <motion.p
           {...fadeUp(0.1)}
-          className="text-lg md:text-xl text-white/80 leading-relaxed text-balance mb-10 max-w-xl"
+          className="text-base md:text-lg text-white/80 leading-relaxed text-balance mb-6 max-w-xl"
         >
           Spotless results. Fully vetted professionals. 100% peace of mind for your home or business.
         </motion.p>

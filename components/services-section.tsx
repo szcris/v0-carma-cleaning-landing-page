@@ -81,9 +81,9 @@ export function ServicesSection() {
   const next = () => setActiveIndex((i) => (i + 1) % services.length)
 
   return (
-    <section id="services" className="py-10 md:py-24 bg-transparent">
+    <section id="services" className="py-6 md:py-12 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14">
+        <div className="text-center mb-8">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
             What We Do
           </span>

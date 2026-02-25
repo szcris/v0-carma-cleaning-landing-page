@@ -87,9 +87,9 @@ export function TestimonialsCarousel() {
   }, [])
 
   return (
-    <section className="py-24 bg-transparent">
+    <section className="py-8 md:py-12 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-14 animate-fade-in-up">
+        <div className="text-center mb-8 animate-fade-in-up">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
             Client Success
           </span>

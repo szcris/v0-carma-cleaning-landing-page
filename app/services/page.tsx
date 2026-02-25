@@ -90,7 +90,7 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* Page header */}
-      <section className="pt-32 pb-16 text-center">
+      <section className="pt-28 pb-8 text-center">
         <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block animate-fade-in-up">
           What We Offer
         </span>
@@ -103,7 +103,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service sections */}
-      <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col gap-24">
+      <div className="max-w-5xl mx-auto px-6 py-6 md:py-10 flex flex-col gap-12">
         {services.map(({ id, title, badge, queryParam, before, after, beforeAlt, afterAlt, points, hideBeforeTag }, index) => (
           <section key={id} id={id} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
             <div className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 items-center`}>
@@ -146,7 +146,7 @@ export default function ServicesPage() {
             </div>
 
             {index < services.length - 1 && (
-              <div className="mt-24 border-t border-border/50" />
+              <div className="mt-12 border-t border-border/50" />
             )}
           </section>
         ))}
