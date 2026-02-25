@@ -29,8 +29,8 @@ export function Navbar() {
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
             alt="Carma Cleaning Logo"
-            style={{ maxHeight: 50, width: "auto" }}
-            className="object-contain"
+            style={{ maxHeight: 50, width: "auto", mixBlendMode: "multiply" }}
+            className="object-contain mr-4"
           />
         </Link>
 

@@ -134,6 +134,10 @@ export default function FaqPage() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
+                  <Label htmlFor="phone" className="text-sm font-semibold text-foreground">Phone Number</Label>
+                  <Input id="phone" type="tel" placeholder="(514) 000-0000" className="rounded-xl bg-white/80 border-border/60 focus-visible:ring-primary" />
+                </div>
+                <div className="flex flex-col gap-2">
                   <Label htmlFor="question" className="text-sm font-semibold text-foreground">Your Question</Label>
                   <Textarea
                     id="question"

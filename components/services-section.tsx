@@ -52,20 +52,20 @@ export function ServicesSection() {
                   alt={title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                {/* Glass overlay */}
-                <div className="absolute inset-0 bg-white/75 backdrop-blur-[2px]" />
+                {/* White overlay at 20% transparency = image at 80% opacity */}
+                <div className="absolute inset-0 bg-white/20" />
               </div>
 
               {/* Content */}
               <div className="relative z-10 p-8 flex flex-col gap-4 min-h-[240px]">
-                <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary bg-primary/10 backdrop-blur-sm px-2.5 py-1 rounded-full w-fit border border-primary/20">
+                <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary bg-white/70 backdrop-blur-sm px-2.5 py-1 rounded-full w-fit border border-primary/20">
                   {badge}
                 </span>
                 <div className="mt-auto">
-                  <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
-                  <p className="text-sm text-foreground/60 leading-relaxed">{description}</p>
+                  <h3 className="text-lg font-bold text-black mb-2">{title}</h3>
+                  <p className="text-sm text-black leading-relaxed">{description}</p>
                 </div>
-                <span className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all drop-shadow-sm">
                   Get a quote →
                 </span>
               </div>

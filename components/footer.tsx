@@ -10,8 +10,12 @@ export function Footer() {
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
             alt="Carma Cleaning Logo"
-            style={{ maxHeight: 40, width: "auto" }}
-            className="object-contain brightness-0 invert opacity-80"
+            style={{
+              maxHeight: 40,
+              width: "auto",
+              filter: "brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,255,255,0.4))",
+            }}
+            className="object-contain"
           />
         </Link>
 
