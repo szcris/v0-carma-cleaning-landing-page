@@ -24,30 +24,23 @@ export function Footer() {
           <p className="text-[10px] text-white/30 text-center whitespace-nowrap mt-1">© 2026 Carma Cleaning Services Inc.</p>
         </div>
 
-        {/* ── Desktop layout — 3-column grid ── */}
-        <div className="hidden md:grid grid-cols-3 gap-y-6 gap-x-8 text-sm">
-          {/* Col 1 */}
-          <div className="flex flex-col gap-3">
-            <p className="text-white font-semibold text-base">Carma Cleaning</p>
-            <p className="text-[12px] text-white/40 leading-relaxed">
-              Professional cleaning services for homes and businesses across Montreal &amp; West Island.
-            </p>
+        {/* ── Desktop layout ── */}
+        <div className="hidden md:flex flex-col gap-3 max-w-5xl mx-auto">
+          {/* Top row — nav left, legal right */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-6">
+              <Link href="/" className="text-xs font-light text-white/60 hover:text-white transition-colors">Home</Link>
+              <Link href="/services" className="text-xs font-light text-white/60 hover:text-white transition-colors">Services</Link>
+              <Link href="/faq" className="text-xs font-light text-white/60 hover:text-white transition-colors">FAQ</Link>
+              <Link href="/contact" className="text-xs font-light text-white/60 hover:text-white transition-colors">Contact</Link>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link href="/privacy" className="text-xs font-light text-white/60 hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-xs font-light text-white/60 hover:text-white transition-colors">Terms &amp; Conditions</Link>
+            </div>
           </div>
-          {/* Col 2 */}
-          <div className="flex flex-col gap-2">
-            <p className="text-white font-semibold text-[12px] uppercase tracking-widest mb-1">Navigation</p>
-            <Link href="/" className="text-[12px] hover:text-white transition-colors">Home</Link>
-            <Link href="/services" className="text-[12px] hover:text-white transition-colors">Services</Link>
-            <Link href="/faq" className="text-[12px] hover:text-white transition-colors">FAQ</Link>
-            <Link href="/contact" className="text-[12px] hover:text-white transition-colors">Contact</Link>
-          </div>
-          {/* Col 3 */}
-          <div className="flex flex-col gap-2">
-            <p className="text-white font-semibold text-[12px] uppercase tracking-widest mb-1">Legal</p>
-            <Link href="/privacy" className="text-[12px] hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-[12px] hover:text-white transition-colors">Terms of Service</Link>
-            <p className="text-[11px] text-white/30 mt-2">© 2026 Carma Cleaning Services Inc.</p>
-          </div>
+          {/* Bottom row — copyright centered */}
+          <p className="text-[10px] text-white/30 text-center whitespace-nowrap">© 2026 Carma Cleaning Services Inc.</p>
         </div>
 
       </div>
