@@ -45,10 +45,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <div className="w-0.5 h-8 bg-white/40 mx-auto" />
-      </div>
     </section>
   )
 }

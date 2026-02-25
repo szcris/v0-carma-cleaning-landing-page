@@ -9,58 +9,68 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Star } from "lucide-react"
 
 const testimonials = [
   {
     name: "Marc-André D.",
     initials: "MD",
+    slug: "marc-andre-d",
     text: "The most professional commercial cleaners we've ever hired for our West Island office.",
   },
   {
     name: "Sarah L.",
     initials: "SL",
+    slug: "sarah-l",
     text: "Spotless residential cleaning. They are reliable, insured, and incredibly detail-oriented.",
   },
   {
     name: "Jean-François P.",
     initials: "JP",
+    slug: "jean-francois-p",
     text: "Our dealership showroom has never looked better. The attention to detail is unmatched.",
   },
   {
     name: "Elena R.",
     initials: "ER",
+    slug: "elena-r",
     text: "Used them for a move-out clean in the Plateau. They got my full deposit back. Exceptional!",
   },
   {
     name: "Dr. Aris V.",
     initials: "AV",
+    slug: "dr-aris-v",
     text: "High standards for my medical clinic. Carma Cleaning is consistent and trustworthy.",
   },
   {
     name: "Sophie T.",
     initials: "ST",
+    slug: "sophie-t",
     text: "Excellent service in Brossard. The team is friendly and the eco-friendly products smell amazing.",
   },
   {
     name: "Robert K.",
     initials: "RK",
+    slug: "robert-k",
     text: "Finally a cleaning company that actually shows up on time and does what they promise.",
   },
   {
     name: "Lucie M.",
     initials: "LM",
+    slug: "lucie-m",
     text: "Le grand ménage était impeccable. Ma maison brille du sol au plafond.",
   },
   {
     name: "David W.",
     initials: "DW",
+    slug: "david-w",
     text: "Professional, bonded, and insured. Peace of mind is worth every penny with Carma.",
   },
   {
     name: "Amélie G.",
     initials: "AG",
+    slug: "amelie-g",
     text: "Fast, efficient, and the 30-second quote system is so easy to use.",
   },
 ]
@@ -105,23 +115,22 @@ export function TestimonialsCarousel() {
                   </div>
 
                   {/* Testimonial text */}
-                  <p className="text-sm text-black leading-relaxed flex-1">
+                  <p className="text-sm font-semibold text-black leading-relaxed flex-1">
                     &ldquo;{t.text}&rdquo;
                   </p>
 
                   {/* Profile footer */}
                   <div className="flex items-center gap-3 pt-2 border-t border-border/40">
-                    <Avatar className="h-9 w-9 bg-primary/10 text-primary font-semibold">
+                    <Avatar className="h-9 w-9">
+                      <AvatarImage
+                        src={`https://i.pravatar.cc/150?u=${t.slug}`}
+                        alt={t.name}
+                      />
                       <AvatarFallback className="bg-primary/10 text-primary text-xs font-bold">
                         {t.initials}
                       </AvatarFallback>
                     </Avatar>
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-sm font-semibold text-foreground">{t.name}</span>
-                      <span className="text-[10px] font-semibold tracking-widest uppercase text-primary bg-primary/10 px-2 py-0.5 rounded-full w-fit">
-                        Verified Client
-                      </span>
-                    </div>
+                    <span className="text-sm font-semibold text-foreground">{t.name}</span>
                   </div>
                 </div>
               </CarouselItem>
