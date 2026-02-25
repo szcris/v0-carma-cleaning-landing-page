@@ -29,18 +29,16 @@ export function Navbar() {
           <div
             className="relative shrink-0"
             style={{
-              width: 46,
+              width: 140,
               height: 46,
               borderRadius: "50%",
-              WebkitMaskImage: "radial-gradient(circle 23px at 50% 50%, black 100%, transparent 100%)",
-              maskImage: "radial-gradient(circle 23px at 50% 50%, black 100%, transparent 100%)",
               overflow: "hidden",
             }}
           >
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
               alt="Carma Cleaning Logo"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
         </Link>
