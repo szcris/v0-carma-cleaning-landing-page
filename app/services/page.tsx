@@ -32,7 +32,7 @@ const services = [
     queryParam: "commercial",
     before: "/images/dealership-dirty.jpg",
     after: "/images/dealership-clean.jpg",
-    beforeAlt: "Car dealership showroom with tire marks and grease before cleaning",
+    beforeAlt: "Cluttered office cubicle with dusty monitors, food wrappers, and coffee stains before commercial cleaning",
     afterAlt: "Spotless car dealership showroom after Carma cleaning",
     points: [
       "Flexible scheduling — early morning, evening, or weekend cleans to fit your operations.",
