@@ -50,29 +50,26 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
         <div className="absolute inset-0 bg-white/40" />
       </div>
 
-      {/* Content — centered column */}
-      <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center min-h-[300px]">
-        {/* Glassmorphism card — title, description, button all inside */}
-        <div className="flex flex-col items-center gap-4 bg-white/40 backdrop-blur-md rounded-xl px-6 py-6 border border-white/60 shadow-lg w-full">
-          <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary px-2.5 py-1 rounded-full border border-primary/30">
-            {badge}
+      {/* Content — floating directly on image, no box */}
+      <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[300px]">
+        <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary px-2.5 py-1 rounded-full border border-primary/40 bg-white/30">
+          {badge}
+        </span>
+        <h3 className="text-lg font-bold text-black drop-shadow-sm">{title}</h3>
+        <p className="text-sm font-semibold leading-relaxed text-black drop-shadow-sm max-w-[220px]">{description}</p>
+        <Button
+          asChild
+          className="rounded-md shadow-md text-white gap-2 transition-all duration-300"
+          style={{ backgroundColor: "#0284C7" }}
+        >
+          <span>
+            <Sparkles
+              size={14}
+              className={`transition-all duration-300 ${hovered ? "rotate-12 scale-125" : ""}`}
+            />
+            Get a Quote
           </span>
-          <h3 className="text-lg font-bold text-black">{title}</h3>
-          <p className="text-sm font-semibold leading-relaxed text-black">{description}</p>
-          <Button
-            asChild
-            className="rounded-md shadow-md text-white gap-2 mt-1 transition-all duration-300"
-            style={{ backgroundColor: "#0284C7" }}
-          >
-            <span>
-              <Sparkles
-                size={14}
-                className={`transition-all duration-300 ${hovered ? "rotate-12 scale-125" : ""}`}
-              />
-              Get a Quote
-            </span>
-          </Button>
-        </div>
+        </Button>
       </div>
     </Link>
   )
