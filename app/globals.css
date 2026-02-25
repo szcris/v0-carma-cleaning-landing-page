@@ -4,16 +4,16 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Carma Cleaning – airy blues + deep navy */
-  --background: oklch(0.985 0.005 220);       /* #F8FAFC soft blue-white */
-  --foreground: oklch(0.13 0.025 255);         /* #0F172A deep navy */
-  --card: oklch(1 0 0);                        /* white */
+  /* Carma Cleaning – Professional Midnight & Glass */
+  --background: oklch(0.97 0.008 220);
+  --foreground: oklch(0.13 0.025 255);
+  --card: oklch(1 0 0 / 0.75);
   --card-foreground: oklch(0.13 0.025 255);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.13 0.025 255);
-  --primary: oklch(0.52 0.19 240);             /* #0284C7 vibrant trustworthy blue */
+  --primary: oklch(0.52 0.19 240);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.935 0.018 220);         /* #E0F2FE light sky */
+  --secondary: oklch(0.935 0.018 220);
   --secondary-foreground: oklch(0.13 0.025 255);
   --muted: oklch(0.96 0.008 220);
   --muted-foreground: oklch(0.46 0.02 240);
@@ -21,8 +21,8 @@
   --accent-foreground: oklch(0.13 0.025 255);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.9 0.012 220);
-  --input: oklch(0.9 0.012 220);
+  --border: oklch(0.88 0.015 220);
+  --input: oklch(0.92 0.01 220);
   --ring: oklch(0.52 0.19 240);
   --chart-1: oklch(0.52 0.19 240);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -76,7 +76,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: 'Inter', 'Inter Fallback';
+  --font-serif: 'DM Serif Display', 'DM Serif Display Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -122,5 +123,40 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 10%, oklch(0.87 0.04 230 / 0.45) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, oklch(0.88 0.03 210 / 0.35) 0%, transparent 55%);
+    background-attachment: fixed;
   }
+}
+
+/* Fade-in-up animation for scroll reveals */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Stagger delays */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+
+/* Magnetic button hover */
+.btn-magnetic {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+.btn-magnetic:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 12px 32px oklch(0.52 0.19 240 / 0.3);
 }

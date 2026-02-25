@@ -18,31 +18,42 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        scrolled
+          ? "bg-white/70 backdrop-blur-xl border-b border-white/40 shadow-sm shadow-foreground/5"
+          : "bg-white/10 backdrop-blur-md border-b border-white/10"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo wordmark */}
-        <Link href="/" className="flex items-center gap-1.5">
-          <span className="font-serif text-xl text-foreground leading-none tracking-tight">
-            Carma
-          </span>
-          <span className="text-primary font-bold text-xl leading-none">·</span>
-          <span className="font-sans text-sm font-semibold tracking-[0.15em] uppercase text-foreground/60 leading-none">
-            Cleaning
-          </span>
+        {/* Logo image */}
+        <Link href="/" className="flex items-center shrink-0">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
+            alt="Carma Cleaning Logo"
+            style={{ maxHeight: 50, width: "auto" }}
+            className="object-contain"
+          />
         </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
+          <Link href="/" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
+            Home
+          </Link>
           <Link href="/services" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
             Services
           </Link>
           <Link href="/faq" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
             FAQ
           </Link>
-          <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5">
-            <Link href="/#quote">Get a Free Quote</Link>
+          <Link href="/contact" className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium">
+            Contact
+          </Link>
+          <Button
+            asChild
+            size="sm"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 btn-magnetic"
+          >
+            <Link href="/contact">Get a Free Quote</Link>
           </Button>
         </div>
 
@@ -58,15 +69,13 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-border px-6 py-4 flex flex-col gap-4">
-          <Link href="/services" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>
-            Services
-          </Link>
-          <Link href="/faq" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>
-            FAQ
-          </Link>
+        <div className="md:hidden bg-white/80 backdrop-blur-xl border-t border-border/50 px-6 py-4 flex flex-col gap-4">
+          <Link href="/" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="/services" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>Services</Link>
+          <Link href="/faq" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>FAQ</Link>
+          <Link href="/contact" className="text-sm font-medium text-foreground/70 hover:text-foreground" onClick={() => setMenuOpen(false)}>Contact</Link>
           <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full">
-            <Link href="/#quote" onClick={() => setMenuOpen(false)}>Get a Free Quote</Link>
+            <Link href="/contact" onClick={() => setMenuOpen(false)}>Get a Free Quote</Link>
           </Button>
         </div>
       )}

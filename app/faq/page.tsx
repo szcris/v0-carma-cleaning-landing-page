@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "How do I book a cleaning?",
-    a: "Fill out the quote form on our homepage. A team member will follow up within a few hours to confirm your details, discuss your needs, and schedule your first appointment.",
+    a: "Fill out the quote form on our Contact page. A team member will follow up within a few hours to confirm your details, discuss your needs, and schedule your first appointment.",
   },
   {
     q: "What is your cancellation policy?",
@@ -67,30 +67,31 @@ export default function FaqPage() {
   }
 
   return (
-    <main className="bg-background min-h-screen">
+    <main className="min-h-screen bg-transparent">
       <Navbar />
 
       {/* Page header */}
-      <section className="pt-32 pb-16 text-center bg-secondary/30">
-        <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
+      <section className="pt-32 pb-16 text-center">
+        <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block animate-fade-in-up">
           FAQ
         </span>
-        <h1 className="font-serif text-5xl md:text-6xl text-foreground text-balance">
+        <h1 className="font-serif text-5xl md:text-6xl text-foreground text-balance animate-fade-in-up animate-delay-100">
           Common Questions
         </h1>
-        <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+        <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm leading-relaxed animate-fade-in-up animate-delay-200">
           Everything you need to know before booking. Can't find your answer? Ask us below.
         </p>
       </section>
 
       {/* Accordion */}
-      <section className="max-w-3xl mx-auto px-6 py-20">
+      <section className="max-w-3xl mx-auto px-6 py-8 pb-20">
         <Accordion type="single" collapsible className="flex flex-col gap-3">
           {faqs.map((faq, i) => (
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="bg-card border border-border rounded-xl px-6 py-1 shadow-sm shadow-foreground/5"
+              className="bg-white/60 backdrop-blur-md border border-white/60 rounded-xl px-6 py-1 shadow-sm animate-fade-in-up"
+              style={{ animationDelay: `${i * 0.05}s` }}
             >
               <AccordionTrigger className="text-sm font-semibold text-foreground hover:no-underline py-5 text-left">
                 {faq.q}
@@ -104,7 +105,7 @@ export default function FaqPage() {
       </section>
 
       {/* Contact form */}
-      <section className="bg-secondary/30 py-20">
+      <section className="pb-20">
         <div className="max-w-xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">Still have questions?</h2>
@@ -113,41 +114,39 @@ export default function FaqPage() {
             </p>
           </div>
 
-          <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
+          <div className="bg-white/70 backdrop-blur-xl border border-white/60 rounded-2xl p-8 shadow-xl shadow-foreground/8">
             {submitted ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
                 <CheckCircle size={44} className="text-primary" />
                 <h3 className="text-lg font-bold text-foreground">Message Received!</h3>
-                <p className="text-muted-foreground text-sm max-w-xs">
-                  We'll be in touch shortly.
-                </p>
+                <p className="text-muted-foreground text-sm max-w-xs">We'll be in touch shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="name" className="text-sm font-medium text-foreground">Name</Label>
-                    <Input id="name" placeholder="Your name" required className="rounded-xl border-border bg-background focus-visible:ring-primary" />
+                    <Label htmlFor="name" className="text-sm font-semibold text-foreground">Name</Label>
+                    <Input id="name" placeholder="Your name" required className="rounded-xl bg-white/80 border-border/60 focus-visible:ring-primary" />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="email" className="text-sm font-medium text-foreground">Email</Label>
-                    <Input id="email" type="email" placeholder="you@example.com" required className="rounded-xl border-border bg-background focus-visible:ring-primary" />
+                    <Label htmlFor="email" className="text-sm font-semibold text-foreground">Email</Label>
+                    <Input id="email" type="email" placeholder="you@example.com" required className="rounded-xl bg-white/80 border-border/60 focus-visible:ring-primary" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Label htmlFor="question" className="text-sm font-medium text-foreground">Your Question</Label>
+                  <Label htmlFor="question" className="text-sm font-semibold text-foreground">Your Question</Label>
                   <Textarea
                     id="question"
                     placeholder="What would you like to know?"
                     required
                     rows={4}
-                    className="rounded-xl border-border bg-background focus-visible:ring-primary resize-none"
+                    className="rounded-xl bg-white/80 border-border/60 focus-visible:ring-primary resize-none"
                   />
                 </div>
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl font-semibold"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl font-semibold btn-magnetic"
                 >
                   Submit Question
                 </Button>

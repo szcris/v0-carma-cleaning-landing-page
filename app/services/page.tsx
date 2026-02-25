@@ -59,15 +59,13 @@ const services = [
   },
 ]
 
-function SparkleButton({ href, label }: { href: string; label?: string }) {
+function SparkleButton({ href }: { href: string }) {
   const [hovered, setHovered] = useState(false)
   return (
     <Button
       asChild
       size="lg"
-      className={cn(
-        "rounded-md bg-foreground text-white hover:bg-foreground/90 transition-all duration-200 gap-2 font-semibold text-sm"
-      )}
+      className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 font-semibold text-sm btn-magnetic"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -76,10 +74,10 @@ function SparkleButton({ href, label }: { href: string; label?: string }) {
           size={15}
           className={cn(
             "transition-all duration-300",
-            hovered ? "opacity-100 scale-110 rotate-12" : "opacity-40 scale-100 rotate-0"
+            hovered ? "opacity-100 scale-110 rotate-12" : "opacity-60 scale-100 rotate-0"
           )}
         />
-        {label ?? "Get a Free Quote"}
+        Get a Free Quote
       </Link>
     </Button>
   )
@@ -87,36 +85,36 @@ function SparkleButton({ href, label }: { href: string; label?: string }) {
 
 export default function ServicesPage() {
   return (
-    <main className="bg-background min-h-screen">
+    <main className="min-h-screen bg-transparent">
       <Navbar />
 
       {/* Page header */}
-      <section className="pt-32 pb-16 text-center bg-secondary/30">
-        <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
+      <section className="pt-32 pb-16 text-center">
+        <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block animate-fade-in-up">
           What We Offer
         </span>
-        <h1 className="font-serif text-5xl md:text-6xl text-foreground text-balance">
+        <h1 className="font-serif text-5xl md:text-6xl text-foreground text-balance animate-fade-in-up animate-delay-100">
           Our Services
         </h1>
-        <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+        <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm leading-relaxed animate-fade-in-up animate-delay-200">
           Every service backed by vetted staff, full insurance, and a satisfaction guarantee.
         </p>
       </section>
 
       {/* Service sections */}
-      <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col gap-24">
+      <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col gap-24">
         {services.map(({ id, title, badge, queryParam, before, after, beforeAlt, afterAlt, points }, index) => (
-          <section key={id} id={id}>
+          <section key={id} id={id} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
             <div className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 items-center`}>
-              {/* Before / After side-by-side */}
+              {/* Before / After images */}
               <div className="w-full lg:w-1/2 grid grid-cols-2 gap-3 shrink-0">
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
                   <img src={before} alt={beforeAlt} className="absolute inset-0 w-full h-full object-cover" />
                   <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-foreground/70 text-white px-2 py-0.5 rounded-full">
                     Before
                   </span>
                 </div>
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
                   <img src={after} alt={afterAlt} className="absolute inset-0 w-full h-full object-cover" />
                   <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-primary text-white px-2 py-0.5 rounded-full">
                     After
@@ -126,7 +124,7 @@ export default function ServicesPage() {
 
               {/* Text */}
               <div className="w-full lg:w-1/2 flex flex-col gap-5">
-                <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary/80 bg-secondary px-2.5 py-1 rounded-full w-fit">
+                <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary bg-primary/10 px-2.5 py-1 rounded-full w-fit border border-primary/20">
                   {badge}
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl text-foreground">{title}</h2>
@@ -139,13 +137,13 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 <div className="mt-2">
-                  <SparkleButton href={`/#quote?service=${queryParam}`} />
+                  <SparkleButton href={`/contact?service=${queryParam}`} />
                 </div>
               </div>
             </div>
 
             {index < services.length - 1 && (
-              <div className="mt-24 border-t border-border" />
+              <div className="mt-24 border-t border-border/50" />
             )}
           </section>
         ))}

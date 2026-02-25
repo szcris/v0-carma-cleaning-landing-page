@@ -1,3 +1,4 @@
+import Link from "next/link"
 import {
   Accordion,
   AccordionContent,
@@ -20,7 +21,7 @@ const faqs = [
   },
   {
     q: "How do I book or reschedule?",
-    a: "Simply fill out our quote form above and our team will be in touch within a few hours to confirm your booking and any scheduling details.",
+    a: "Fill out our quote form and our team will be in touch within a few hours to confirm your booking and any scheduling details.",
   },
   {
     q: "Are you insured?",
@@ -30,16 +31,21 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="py-24 bg-secondary/30">
+    <section id="faq" className="py-24 bg-transparent">
       <div className="max-w-3xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in-up">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
             FAQ
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground text-balance">
             Common Questions
           </h2>
+          <p className="text-muted-foreground mt-3 text-sm">
+            More questions?{" "}
+            <Link href="/faq" className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">
+              See the full FAQ →
+            </Link>
+          </p>
         </div>
 
         <Accordion type="single" collapsible className="flex flex-col gap-3">
@@ -47,7 +53,8 @@ export function FaqSection() {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="bg-card border border-border rounded-xl px-6 py-1 shadow-sm shadow-foreground/5"
+              className="bg-white/60 backdrop-blur-md border border-white/60 rounded-xl px-6 py-1 shadow-sm animate-fade-in-up"
+              style={{ animationDelay: `${i * 0.08}s` }}
             >
               <AccordionTrigger className="text-sm font-semibold text-foreground hover:no-underline py-5 text-left">
                 {faq.q}
