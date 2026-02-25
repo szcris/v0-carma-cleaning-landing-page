@@ -28,7 +28,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pt-16 flex flex-col items-center">
         <motion.h1
           {...fadeUp(0)}
-          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-[1.85rem] sm:text-3xl md:text-5xl mb-6"
+          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-[1.35rem] sm:text-3xl md:text-5xl mb-6"
         >
           Montreal&apos;s Gold Standard
           <br />

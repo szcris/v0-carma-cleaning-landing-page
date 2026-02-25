@@ -1,14 +1,4 @@
 import Link from "next/link"
-import { Facebook, Instagram } from "lucide-react"
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
-]
 
 export function Footer() {
   return (
@@ -17,24 +7,14 @@ export function Footer() {
 
         {/* ── Mobile layout ── */}
         <div className="md:hidden flex flex-col gap-2">
-          {/* Two flush columns with socials centered between */}
           <div className="flex items-start justify-between gap-2">
-            {/* Left column — flush left */}
+            {/* Left column */}
             <div className="flex flex-col gap-1">
               <Link href="/" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Home</Link>
               <Link href="/faq" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">FAQ</Link>
               <Link href="/privacy" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Privacy Policy</Link>
             </div>
-            {/* Center — social icons */}
-            <div className="flex items-center gap-4 pt-1">
-              <a href="https://www.facebook.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors">
-                <Facebook size={16} />
-              </a>
-              <a href="https://www.instagram.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
-                <Instagram size={16} />
-              </a>
-            </div>
-            {/* Right column — flush right */}
+            {/* Right column */}
             <div className="flex flex-col gap-1 items-end">
               <Link href="/services" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Services</Link>
               <Link href="/contact" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Contact</Link>
@@ -52,14 +32,6 @@ export function Footer() {
             <p className="text-[12px] text-white/40 leading-relaxed">
               Professional cleaning services for homes and businesses across Montreal &amp; West Island.
             </p>
-            <div className="flex items-center gap-4 mt-1">
-              <a href="https://www.facebook.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors">
-                <Facebook size={16} />
-              </a>
-              <a href="https://www.instagram.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
-                <Instagram size={16} />
-              </a>
-            </div>
           </div>
           {/* Col 2 */}
           <div className="flex flex-col gap-2">
