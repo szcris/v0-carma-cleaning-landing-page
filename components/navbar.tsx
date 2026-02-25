@@ -25,12 +25,12 @@ export function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo image */}
-        <Link href="/" className="flex items-center shrink-0 bg-transparent border-0 outline-none">
+        <Link href="/" className="flex items-center shrink-0">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_giwnvbgiwnvbgiwn.png-esLxFxVXT7kN99lnKdSsQtiuh5Nc5u.jpeg"
             alt="Carma Cleaning Logo"
-            style={{ maxHeight: 50, width: "auto", background: "transparent", mixBlendMode: "multiply" }}
-            className="object-contain mr-4 bg-transparent"
+            style={{ maxHeight: 50, width: "auto", mixBlendMode: "multiply" }}
+            className="object-contain mr-4"
           />
         </Link>
 
