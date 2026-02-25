@@ -1,41 +1,64 @@
 import Link from "next/link"
 import { Facebook, Instagram } from "lucide-react"
 
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+]
+
 export function Footer() {
   return (
     <footer className="bg-foreground text-white/60">
       <div className="w-[75%] mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-8 text-sm text-center md:text-left">
 
-          {/* Column 1 — Copyright + Socials */}
+        {/* ── Mobile layout ── */}
+        <div className="md:hidden flex flex-col items-center gap-4 text-center">
+          <p className="text-white font-semibold text-base">Carma Cleaning</p>
+          {/* 2-column link grid */}
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1 w-full max-w-xs">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[12px] py-1.5 px-2 rounded text-white/60 hover:text-white hover:bg-white/10 transition-colors text-center"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="https://www.facebook.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors">
+              <Facebook size={16} />
+            </a>
+            <a href="https://www.instagram.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
+              <Instagram size={16} />
+            </a>
+          </div>
+          <p className="text-[11px] text-white/30">© 2026 Carma Cleaning Services Inc.</p>
+        </div>
+
+        {/* ── Desktop layout — 3-column grid ── */}
+        <div className="hidden md:grid grid-cols-3 gap-y-6 gap-x-8 text-sm">
+          {/* Col 1 */}
           <div className="flex flex-col gap-3">
             <p className="text-white font-semibold text-base">Carma Cleaning</p>
             <p className="text-[12px] text-white/40 leading-relaxed">
               Professional cleaning services for homes and businesses across Montreal &amp; West Island.
             </p>
-            <div className="flex items-center gap-4 mt-1 justify-center md:justify-start">
-              <a
-                href="https://www.facebook.com/carmacleaning"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Carma Cleaning on Facebook"
-                className="hover:text-white transition-colors"
-              >
+            <div className="flex items-center gap-4 mt-1">
+              <a href="https://www.facebook.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors">
                 <Facebook size={16} />
               </a>
-              <a
-                href="https://www.instagram.com/carmacleaning"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Carma Cleaning on Instagram"
-                className="hover:text-white transition-colors"
-              >
+              <a href="https://www.instagram.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
                 <Instagram size={16} />
               </a>
             </div>
           </div>
-
-          {/* Column 2 — Navigation */}
+          {/* Col 2 */}
           <div className="flex flex-col gap-2">
             <p className="text-white font-semibold text-[12px] uppercase tracking-widest mb-1">Navigation</p>
             <Link href="/" className="text-[12px] hover:text-white transition-colors">Home</Link>
@@ -43,16 +66,15 @@ export function Footer() {
             <Link href="/faq" className="text-[12px] hover:text-white transition-colors">FAQ</Link>
             <Link href="/contact" className="text-[12px] hover:text-white transition-colors">Contact</Link>
           </div>
-
-          {/* Column 3 — Legal */}
+          {/* Col 3 */}
           <div className="flex flex-col gap-2">
             <p className="text-white font-semibold text-[12px] uppercase tracking-widest mb-1">Legal</p>
             <Link href="/privacy" className="text-[12px] hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="text-[12px] hover:text-white transition-colors">Terms of Service</Link>
             <p className="text-[11px] text-white/30 mt-2">© 2026 Carma Cleaning Services Inc.</p>
           </div>
-
         </div>
+
       </div>
     </footer>
   )

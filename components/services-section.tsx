@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Sparkles } from "lucide-react"
+import { Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const services = [
@@ -35,8 +35,7 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
   return (
     <Link
       href={`/contact?service=${query}`}
-      className="group relative rounded-2xl overflow-hidden border border-white/60 shadow-md hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 block flex-shrink-0
-        w-[85vw] sm:w-auto"
+      className="group relative rounded-2xl overflow-hidden border border-white/60 shadow-md hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 block w-full"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -76,6 +75,11 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
 }
 
 export function ServicesSection() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const prev = () => setActiveIndex((i) => (i - 1 + services.length) % services.length)
+  const next = () => setActiveIndex((i) => (i + 1) % services.length)
+
   return (
     <section id="services" className="py-24 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
@@ -88,15 +92,42 @@ export function ServicesSection() {
           </h2>
         </div>
 
-        {/* Mobile: horizontal scroll carousel — Desktop: 3-col grid */}
-        <div className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none -mx-6 px-6">
-          {services.map((service) => (
-            <div key={service.title} className="snap-start">
-              <ServiceCard {...service} />
-            </div>
+        {/* Mobile: arrow-navigated single card */}
+        <div className="md:hidden relative flex items-center justify-center gap-3">
+          <button
+            onClick={prev}
+            aria-label="Previous service"
+            className="shrink-0 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow flex items-center justify-center hover:bg-white transition-colors"
+          >
+            <ChevronLeft size={20} className="text-foreground" />
+          </button>
+
+          <div className="flex-1 min-w-0">
+            <ServiceCard {...services[activeIndex]} />
+          </div>
+
+          <button
+            onClick={next}
+            aria-label="Next service"
+            className="shrink-0 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow flex items-center justify-center hover:bg-white transition-colors"
+          >
+            <ChevronRight size={20} className="text-foreground" />
+          </button>
+        </div>
+
+        {/* Mobile dot indicators */}
+        <div className="md:hidden flex justify-center gap-2 mt-4">
+          {services.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              aria-label={`Go to service ${i + 1}`}
+              className={`w-2 h-2 rounded-full transition-colors ${i === activeIndex ? "bg-primary" : "bg-foreground/20"}`}
+            />
           ))}
         </div>
 
+        {/* Desktop: 3-col grid */}
         <div className="hidden md:grid grid-cols-3 gap-6">
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />

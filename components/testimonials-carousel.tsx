@@ -100,7 +100,7 @@ export function TestimonialsCarousel() {
 
         <Carousel
           setApi={(api) => { apiRef.current = api }}
-          opts={{ loop: true, align: "start" }}
+          opts={{ loop: true, align: "center" }}
           className="w-full"
         >
           <CarouselContent className="-ml-4">
@@ -136,8 +136,8 @@ export function TestimonialsCarousel() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-5 bg-white/70 backdrop-blur-md border-white/60 hover:bg-white/90" />
-          <CarouselNext className="hidden md:flex -right-5 bg-white/70 backdrop-blur-md border-white/60 hover:bg-white/90" />
+          <CarouselPrevious className="-left-4 md:-left-5 bg-white/70 backdrop-blur-md border-white/60 hover:bg-white/90" />
+          <CarouselNext className="-right-4 md:-right-5 bg-white/70 backdrop-blur-md border-white/60 hover:bg-white/90" />
         </Carousel>
       </div>
     </section>
