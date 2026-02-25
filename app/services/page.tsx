@@ -18,6 +18,7 @@ const services = [
     after: "/images/residential-after.jpg",
     beforeAlt: "Dirty bathroom with soap scum on shower glass, mold on grout lines, and cluttered vanity before residential cleaning",
     afterAlt: "Spotless residential room after Carma cleaning",
+    hideBeforeTag: true,
     points: [
       "Fully vetted, background-checked cleaners — the same trusted team every visit.",
       "Fully insured and bonded. Every job is covered, no exceptions.",
@@ -103,16 +104,18 @@ export default function ServicesPage() {
 
       {/* Service sections */}
       <div className="max-w-5xl mx-auto px-6 py-16 flex flex-col gap-24">
-        {services.map(({ id, title, badge, queryParam, before, after, beforeAlt, afterAlt, points }, index) => (
+        {services.map(({ id, title, badge, queryParam, before, after, beforeAlt, afterAlt, points, hideBeforeTag }, index) => (
           <section key={id} id={id} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
             <div className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 items-center`}>
               {/* Before / After images */}
               <div className="w-full lg:w-1/2 grid grid-cols-2 gap-3 shrink-0">
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
                   <img src={before} alt={beforeAlt} className="absolute inset-0 w-full h-full object-cover" />
-                  <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-primary text-white px-2 py-0.5 rounded-full">
-                    Before
-                  </span>
+                  {!hideBeforeTag && (
+                    <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-primary text-white px-2 py-0.5 rounded-full">
+                      Before
+                    </span>
+                  )}
                 </div>
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
                   <img src={after} alt={afterAlt} className="absolute inset-0 w-full h-full object-cover" />
