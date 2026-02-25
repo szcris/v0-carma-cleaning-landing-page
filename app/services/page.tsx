@@ -1,11 +1,19 @@
+"use client"
+
+import Link from "next/link"
+import { useState } from "react"
+import { Sparkles } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { cn } from "@/lib/utils"
 
 const services = [
   {
     id: "residential",
     title: "Residential Cleaning",
     badge: "Nettoyage Résidentiel",
+    queryParam: "residential",
     before: "/images/residential-before.jpg",
     after: "/images/residential-after.jpg",
     beforeAlt: "Dirty bathroom before cleaning",
@@ -21,6 +29,7 @@ const services = [
     id: "commercial",
     title: "Commercial Cleaning",
     badge: "Nettoyage Commercial",
+    queryParam: "commercial",
     before: "/images/commercial-before.jpg",
     after: "/images/commercial-after.jpg",
     beforeAlt: "Dirty office break room before cleaning",
@@ -36,6 +45,7 @@ const services = [
     id: "moveinout",
     title: "Move-In / Move-Out Cleaning",
     badge: "Déménagement",
+    queryParam: "move",
     before: "/images/move-before.jpg",
     after: "/images/move-after.jpg",
     beforeAlt: "Empty apartment with grime before cleaning",
@@ -48,6 +58,32 @@ const services = [
     ],
   },
 ]
+
+function SparkleButton({ href, label }: { href: string; label?: string }) {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <Button
+      asChild
+      size="lg"
+      className={cn(
+        "rounded-md bg-foreground text-white hover:bg-foreground/90 transition-all duration-200 gap-2 font-semibold text-sm"
+      )}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Link href={href}>
+        <Sparkles
+          size={15}
+          className={cn(
+            "transition-all duration-300",
+            hovered ? "opacity-100 scale-110 rotate-12" : "opacity-40 scale-100 rotate-0"
+          )}
+        />
+        {label ?? "Get a Free Quote"}
+      </Link>
+    </Button>
+  )
+}
 
 export default function ServicesPage() {
   return (
@@ -69,24 +105,22 @@ export default function ServicesPage() {
 
       {/* Service sections */}
       <div className="max-w-5xl mx-auto px-6 py-20 flex flex-col gap-24">
-        {services.map(({ id, title, badge, before, after, beforeAlt, afterAlt, points }, index) => (
+        {services.map(({ id, title, badge, queryParam, before, after, beforeAlt, afterAlt, points }, index) => (
           <section key={id} id={id}>
             <div className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 items-center`}>
-              {/* Before / After photos */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-3 shrink-0">
-                <div className="grid grid-cols-2 gap-3 rounded-2xl overflow-hidden">
-                  <div className="relative">
-                    <img src={before} alt={beforeAlt} className="w-full aspect-square object-cover rounded-xl" />
-                    <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-foreground/70 text-white px-2 py-0.5 rounded-full">
-                      Before
-                    </span>
-                  </div>
-                  <div className="relative">
-                    <img src={after} alt={afterAlt} className="w-full aspect-square object-cover rounded-xl" />
-                    <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-primary text-white px-2 py-0.5 rounded-full">
-                      After
-                    </span>
-                  </div>
+              {/* Before / After side-by-side */}
+              <div className="w-full lg:w-1/2 grid grid-cols-2 gap-3 shrink-0">
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
+                  <img src={before} alt={beforeAlt} className="absolute inset-0 w-full h-full object-cover" />
+                  <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-foreground/70 text-white px-2 py-0.5 rounded-full">
+                    Before
+                  </span>
+                </div>
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
+                  <img src={after} alt={afterAlt} className="absolute inset-0 w-full h-full object-cover" />
+                  <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-primary text-white px-2 py-0.5 rounded-full">
+                    After
+                  </span>
                 </div>
               </div>
 
@@ -99,21 +133,17 @@ export default function ServicesPage() {
                 <ul className="flex flex-col gap-3">
                   {points.map((point) => (
                     <li key={point} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
-                      <span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       {point}
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="/#quote"
-                  className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 transition-colors mt-2"
-                >
-                  Get a free quote →
-                </a>
+                <div className="mt-2">
+                  <SparkleButton href={`/#quote?service=${queryParam}`} />
+                </div>
               </div>
             </div>
 
-            {/* Divider */}
             {index < services.length - 1 && (
               <div className="mt-24 border-t border-border" />
             )}
