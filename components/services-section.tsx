@@ -46,8 +46,8 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {/* 92% white overlay for maximum text contrast */}
-        <div className="absolute inset-0 bg-white/[0.92]" />
+        {/* 20% white overlay = 80% image opacity */}
+        <div className="absolute inset-0 bg-white/20" />
       </div>
 
       {/* Content — centered column */}
@@ -60,13 +60,13 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
         {/* Title + description */}
         <div className="flex flex-col gap-2">
           <h3 className="text-lg font-bold text-black">{title}</h3>
-          <p className="text-sm font-semibold text-black leading-relaxed">{description}</p>
+          <p className="text-sm text-black leading-relaxed">{description}</p>
         </div>
 
         {/* CTA button */}
         <Button
           asChild
-          className="rounded-md shadow-md bg-[#0284C7] text-white hover:bg-[#0369a1] gap-2 pointer-events-none"
+          className="rounded-md shadow-md bg-foreground text-white hover:bg-foreground/90 gap-2 pointer-events-none"
           tabIndex={-1}
           aria-hidden="true"
         >
