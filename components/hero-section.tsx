@@ -26,31 +26,24 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pt-16 flex flex-col items-center">
-        <motion.span
-          {...fadeUp(0)}
-          className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-white/70 mb-6 border border-white/20 rounded-full px-4 py-1.5"
-        >
-          Montreal &amp; West Island
-        </motion.span>
-
         <motion.h1
-          {...fadeUp(0.1)}
-          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-2xl sm:text-3xl md:text-5xl text-balance mb-6"
+          {...fadeUp(0)}
+          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-[1.85rem] sm:text-3xl md:text-5xl mb-6"
         >
           Montreal&apos;s Gold Standard
           <br />
-          In Premium Cleaning
+          in Premium Cleaning
         </motion.h1>
 
         <motion.p
-          {...fadeUp(0.2)}
+          {...fadeUp(0.1)}
           className="text-lg md:text-xl text-white/80 leading-relaxed text-balance mb-10 max-w-xl"
         >
           Spotless results. Fully vetted professionals. 100% peace of mind for your home or business.
         </motion.p>
 
         <motion.div
-          {...fadeUp(0.3)}
+          {...fadeUp(0.2)}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button

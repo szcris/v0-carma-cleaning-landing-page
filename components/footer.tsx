@@ -16,29 +16,32 @@ export function Footer() {
       <div className="w-[75%] mx-auto px-6 py-8">
 
         {/* ── Mobile layout ── */}
-        <div className="md:hidden flex flex-col items-center gap-4 text-center">
-          <p className="text-white font-semibold text-base">Carma Cleaning</p>
-          {/* 2-column link grid */}
-          <div className="grid grid-cols-2 gap-x-3 gap-y-1 w-full max-w-xs">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-[12px] py-1.5 px-2 rounded text-white/60 hover:text-white hover:bg-white/10 transition-colors text-center"
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className="md:hidden flex flex-col gap-2">
+          {/* Two flush columns with socials centered between */}
+          <div className="flex items-start justify-between gap-2">
+            {/* Left column — flush left */}
+            <div className="flex flex-col gap-1">
+              <Link href="/" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Home</Link>
+              <Link href="/faq" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">FAQ</Link>
+              <Link href="/privacy" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Privacy Policy</Link>
+            </div>
+            {/* Center — social icons */}
+            <div className="flex items-center gap-4 pt-1">
+              <a href="https://www.facebook.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors">
+                <Facebook size={16} />
+              </a>
+              <a href="https://www.instagram.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
+                <Instagram size={16} />
+              </a>
+            </div>
+            {/* Right column — flush right */}
+            <div className="flex flex-col gap-1 items-end">
+              <Link href="/services" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Services</Link>
+              <Link href="/contact" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Contact</Link>
+              <Link href="/terms" className="text-[12px] text-white/60 hover:text-white transition-colors py-0.5">Terms</Link>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <a href="https://www.facebook.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors">
-              <Facebook size={16} />
-            </a>
-            <a href="https://www.instagram.com/carmacleaning" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
-              <Instagram size={16} />
-            </a>
-          </div>
-          <p className="text-[11px] text-white/30">© 2026 Carma Cleaning Services Inc.</p>
+          <p className="text-[10px] text-white/30 text-center whitespace-nowrap mt-1">© 2026 Carma Cleaning Services Inc.</p>
         </div>
 
         {/* ── Desktop layout — 3-column grid ── */}
