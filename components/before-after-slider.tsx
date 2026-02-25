@@ -66,8 +66,8 @@ export function BeforeAfterSlider() {
             style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
           >
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-02-24%20190926-XH0kcheZtm8tVWByQx44Cp9FHpMdBw.png"
-              alt="Before cleaning — messy dealership office"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_f9uz1hf9uz1hf9uz.png-baAiKlJQbbKMmajigSkiturmQCYGyY.jpeg"
+              alt="Before cleaning — messy dealership office with white tables"
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
             />
