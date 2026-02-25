@@ -46,27 +46,28 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {/* 95% white overlay = 5% image opacity */}
-        <div className="absolute inset-0 bg-white/[0.95]" />
+        {/* 25% white overlay = 75% image visible */}
+        <div className="absolute inset-0 bg-white/25" />
       </div>
 
       {/* Content — centered column */}
       <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center gap-5 min-h-[300px]">
         {/* Badge top */}
-        <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary bg-white/70 backdrop-blur-sm px-2.5 py-1 rounded-full border border-primary/20">
+        <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-full border border-primary/20">
           {badge}
         </span>
 
-        {/* Title + description */}
-        <div className="flex flex-col gap-2">
+        {/* Title + description — white frosted pill for legibility */}
+        <div className="flex flex-col gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-5 py-4">
           <h3 className="text-lg font-bold text-black">{title}</h3>
-          <p className="text-sm font-semibold leading-relaxed" style={{ color: "#000000" }}>{description}</p>
+          <p className="text-sm font-semibold leading-relaxed text-black">{description}</p>
         </div>
 
         {/* CTA button */}
         <Button
           asChild
-          className="rounded-md shadow-md text-white gap-2 pointer-events-none" style={{ backgroundColor: "#0284C7" }}
+          className="rounded-md shadow-md text-white gap-2 pointer-events-none"
+          style={{ backgroundColor: "#0284C7" }}
           tabIndex={-1}
           aria-hidden="true"
         >
