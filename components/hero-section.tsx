@@ -35,7 +35,7 @@ export function HeroSection() {
 
         <motion.h1
           {...fadeUp(0.1)}
-          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-3xl sm:text-4xl md:text-5xl text-balance mb-6"
+          className="font-extrabold tracking-tight leading-tight text-white drop-shadow-2xl text-2xl sm:text-3xl md:text-5xl text-balance mb-6"
         >
           Montreal&apos;s Gold Standard
           <br />
@@ -55,16 +55,14 @@ export function HeroSection() {
         >
           <Button
             asChild
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 text-base font-semibold shadow-lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-2.5 text-sm sm:px-8 sm:py-3 sm:text-base font-semibold shadow-lg"
           >
             <Link href="/contact">Get a Free Quote</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            size="lg"
-            className="rounded-full px-8 text-base font-semibold border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
+            className="rounded-full px-6 py-2.5 text-sm sm:px-8 sm:py-3 sm:text-base font-semibold border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm"
           >
             <Link href="/services">View Our Services</Link>
           </Button>

@@ -79,12 +79,12 @@ export function BeforeAfterSlider() {
             style={{ left: `${position}%` }}
           />
 
-          {/* Handle */}
+          {/* Handle — larger for thumb-scrolling on mobile */}
           <div
-            className="absolute top-1/2 z-10 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center border-2 border-white pointer-events-none"
+            className="absolute top-1/2 z-10 -translate-y-1/2 -translate-x-1/2 w-12 h-12 md:w-10 md:h-10 rounded-full bg-white shadow-xl flex items-center justify-center border-2 border-white pointer-events-none"
             style={{ left: `${position}%` }}
           >
-            <GripVertical size={18} className="text-foreground/70" />
+            <GripVertical size={20} className="text-foreground/70" />
           </div>
 
           {/* Labels */}

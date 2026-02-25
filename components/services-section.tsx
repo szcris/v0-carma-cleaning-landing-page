@@ -35,7 +35,8 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
   return (
     <Link
       href={`/contact?service=${query}`}
-      className="group relative rounded-2xl overflow-hidden border border-white/60 shadow-md hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 block"
+      className="group relative rounded-2xl overflow-hidden border border-white/60 shadow-md hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-300 block flex-shrink-0
+        w-[85vw] sm:w-auto"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -46,11 +47,10 @@ function ServiceCard({ title, badge, description, image, query }: (typeof servic
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {/* 40% white overlay = 60% image visible */}
         <div className="absolute inset-0 bg-white/40" />
       </div>
 
-      {/* Content — floating directly on image, no box */}
+      {/* Content */}
       <div className="relative z-10 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[300px]">
         <span className="inline-block text-[10px] font-semibold tracking-widest uppercase text-primary px-2.5 py-1 rounded-full border border-primary/40 bg-white/30">
           {badge}
@@ -88,8 +88,17 @@ export function ServicesSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service, i) => (
+        {/* Mobile: horizontal scroll carousel — Desktop: 3-col grid */}
+        <div className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none -mx-6 px-6">
+          {services.map((service) => (
+            <div key={service.title} className="snap-start">
+              <ServiceCard {...service} />
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden md:grid grid-cols-3 gap-6">
+          {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
         </div>

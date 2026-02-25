@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-foreground text-white/60">
       <div className="w-[75%] mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-8 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-8 text-sm text-center md:text-left">
 
           {/* Column 1 — Copyright + Socials */}
           <div className="flex flex-col gap-3">
@@ -13,7 +13,7 @@ export function Footer() {
             <p className="text-[12px] text-white/40 leading-relaxed">
               Professional cleaning services for homes and businesses across Montreal &amp; West Island.
             </p>
-            <div className="flex items-center gap-4 mt-1">
+            <div className="flex items-center gap-4 mt-1 justify-center md:justify-start">
               <a
                 href="https://www.facebook.com/carmacleaning"
                 target="_blank"
