@@ -27,7 +27,7 @@ export function Navbar() {
         {/* Logo image */}
         <Link href="/" className="flex items-center shrink-0">
           <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_giwnvbgiwnvbgiwn.png-esLxFxVXT7kN99lnKdSsQtiuh5Nc5u.jpeg"
             alt="Carma Cleaning Logo"
             style={{ maxHeight: 50, width: "auto", mixBlendMode: "multiply" }}
             className="object-contain mr-4"
