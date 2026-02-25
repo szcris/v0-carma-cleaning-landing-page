@@ -54,7 +54,7 @@ export function BeforeAfterSlider() {
         >
           {/* AFTER (clean) — full base layer, static */}
           <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-02-24%20191007-3YapgMcwu9rAo18w0L55G54AU4Gy4w.png"
+            src="/images/slider-after.jpg"
             alt="After professional cleaning — spotless dealership office"
             className="absolute inset-0 w-full h-full object-cover"
             draggable={false}

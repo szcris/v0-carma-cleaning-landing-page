@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
-import { TrustBanner } from "@/components/trust-banner"
 import { ServicesSection } from "@/components/services-section"
 import { BeforeAfterSlider } from "@/components/before-after-slider"
 import { TestimonialsCarousel } from "@/components/testimonials-carousel"
@@ -13,7 +12,6 @@ export default function HomePage() {
     <main>
       <Navbar />
       <HeroSection />
-      <TrustBanner />
       <ServicesSection />
       <BeforeAfterSlider />
       <TestimonialsCarousel />
