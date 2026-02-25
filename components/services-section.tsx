@@ -81,7 +81,7 @@ export function ServicesSection() {
   const next = () => setActiveIndex((i) => (i + 1) % services.length)
 
   return (
-    <section id="services" className="py-24 bg-transparent">
+    <section id="services" className="py-10 md:py-24 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-3 block">
@@ -92,26 +92,24 @@ export function ServicesSection() {
           </h2>
         </div>
 
-        {/* Mobile: arrow-navigated single card */}
-        <div className="md:hidden relative flex items-center justify-center gap-3">
+        {/* Mobile: arrow-navigated single card — arrows overlaid on card edges */}
+        <div className="md:hidden relative w-[92%] mx-auto">
+          <ServiceCard {...services[activeIndex]} />
+          {/* Left arrow — overlaid on card */}
           <button
             onClick={prev}
             aria-label="Previous service"
-            className="shrink-0 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow flex items-center justify-center hover:bg-white transition-colors"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
           >
-            <ChevronLeft size={20} className="text-foreground" />
+            <ChevronLeft size={20} className="text-white" />
           </button>
-
-          <div className="flex-1 min-w-0">
-            <ServiceCard {...services[activeIndex]} />
-          </div>
-
+          {/* Right arrow — overlaid on card */}
           <button
             onClick={next}
             aria-label="Next service"
-            className="shrink-0 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 shadow flex items-center justify-center hover:bg-white transition-colors"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
           >
-            <ChevronRight size={20} className="text-foreground" />
+            <ChevronRight size={20} className="text-white" />
           </button>
         </div>
 

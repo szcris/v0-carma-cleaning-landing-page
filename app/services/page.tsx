@@ -48,7 +48,7 @@ const services = [
     queryParam: "move",
     before: "/images/moveout-dirty.jpg",
     after: "/images/move-after.jpg",
-    beforeAlt: "Empty apartment with wall marks and trash before cleaning",
+    beforeAlt: "Vacant room with muddy footprints, wall marks, and trash before move-out cleaning",
     afterAlt: "Immaculate move-in ready apartment after Carma cleaning",
     points: [
       "Top-to-bottom deep clean covering every surface, corner, and appliance.",
@@ -110,7 +110,7 @@ export default function ServicesPage() {
               <div className="w-full lg:w-1/2 grid grid-cols-2 gap-3 shrink-0">
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
                   <img src={before} alt={beforeAlt} className="absolute inset-0 w-full h-full object-cover" />
-                  <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-foreground/70 text-white px-2 py-0.5 rounded-full">
+                  <span className="absolute bottom-2 left-2 text-[10px] font-bold tracking-widest uppercase bg-primary text-white px-2 py-0.5 rounded-full">
                     Before
                   </span>
                 </div>
