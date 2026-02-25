@@ -4,21 +4,7 @@ import { Facebook, Instagram } from "lucide-react"
 export function Footer() {
   return (
     <footer className="bg-foreground text-white/60">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Logo image */}
-        <Link href="/" className="shrink-0">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
-            alt="Carma Cleaning Logo"
-            style={{
-              maxHeight: 40,
-              width: "auto",
-              filter: "brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,255,255,0.4))",
-            }}
-            className="object-contain"
-          />
-        </Link>
-
+      <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-center gap-6">
         {/* Nav Links */}
         <div className="flex items-center gap-5 text-[11px]">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -26,6 +12,8 @@ export function Footer() {
           <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
           <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
         </div>
+
+        <span className="hidden sm:block text-white/20 text-[11px]">|</span>
 
         {/* Socials + Copyright */}
         <div className="flex items-center gap-4">
