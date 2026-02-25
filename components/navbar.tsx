@@ -25,13 +25,24 @@ export function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo image */}
-        <Link href="/" className="flex items-center shrink-0">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
-            alt="Carma Cleaning Logo"
-            style={{ maxHeight: 50, width: "auto", mixBlendMode: "multiply" }}
-            className="object-contain mr-4"
-          />
+        <Link href="/" className="flex items-center shrink-0 mr-4">
+          <div
+            className="relative shrink-0"
+            style={{
+              width: 46,
+              height: 46,
+              borderRadius: "50%",
+              WebkitMaskImage: "radial-gradient(circle 23px at 50% 50%, black 100%, transparent 100%)",
+              maskImage: "radial-gradient(circle 23px at 50% 50%, black 100%, transparent 100%)",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6lubjm6lubjm6lub.png-gtc6JUQEwioLaYHJjQvny1RmkQWMta.jpeg"
+              alt="Carma Cleaning Logo"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </Link>
 
         {/* Desktop Links */}
